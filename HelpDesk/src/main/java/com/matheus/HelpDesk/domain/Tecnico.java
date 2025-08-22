@@ -2,8 +2,6 @@ package com.matheus.HelpDesk.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
 import com.matheus.HelpDesk.domain.enums.Perfil;
 
 import jakarta.persistence.Entity;
@@ -17,12 +15,12 @@ public class Tecnico extends Pessoa {
     @OneToMany(mappedBy = "tecnico")
     private List<Chamado> chamados = new ArrayList<>();
 
-    public Tecnico(){
+    public Tecnico(Object object, String string, String string2, String string3, String string4){
         addPerfil(Perfil.TECNICO);
 
     }
-        public Tecnico(Integer id, String nome, String cpf, String email,String senha, Set<Integer>perfis){
-        super(id, nome, cpf, email, senha, perfis);
+        public Tecnico(Integer id, String nome, String cpf, String email,String senha){
+        super(id, nome, cpf, email, senha);
         addPerfil(Perfil.TECNICO);
 }
         public List<Chamado> getChamados() {
