@@ -1,12 +1,12 @@
 package com.matheus.HelpDesk.domain;
 
 import java.io.Serializable;
-import java.io.ObjectInputFilter.Status;
 import java.time.LocalDate;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.matheus.HelpDesk.domain.enums.Prioridade;
+import com.matheus.HelpDesk.domain.enums.Status;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
