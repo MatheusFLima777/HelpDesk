@@ -2,6 +2,8 @@ package com.matheus.HelpDesk.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.matheus.HelpDesk.domain.enums.Perfil;
 
 import jakarta.persistence.Entity;
@@ -12,16 +14,16 @@ public class Tecnico extends Pessoa {
 
     private static final long serialVersionUID = 1L;
     
+    @JsonIgnore
     @OneToMany(mappedBy = "tecnico")
     private List<Chamado> chamados = new ArrayList<>();
 
-    public Tecnico(Object object, String string, String string2, String string3, String string4){
+    public Tecnico(Integer id, String nome, String cpf, String email,String senha){
         addPerfil(Perfil.TECNICO);
 
     }
-        public Tecnico(Integer id, String nome, String cpf, String email,String senha){
-        super(id, nome, cpf, email, senha);
-        addPerfil(Perfil.TECNICO);
+        public Tecnico(){
+        super();
 }
         public List<Chamado> getChamados() {
             return chamados;

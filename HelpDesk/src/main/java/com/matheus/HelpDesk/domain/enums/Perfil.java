@@ -24,12 +24,10 @@ public enum Perfil {
 
         @SuppressWarnings("unsed")
         public static Perfil toEnum(Integer codigo){
-            if(codigo == null){
                 if(codigo == null){
                     return null;
                 }
                
-            }
             for(Perfil p: Perfil.values()){
                 if(codigo.equals(p.getCodigo()))
                 return p;

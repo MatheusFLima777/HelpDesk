@@ -34,8 +34,9 @@ public class DBService {
    @PostConstruct
     public void instanciaDB(){
         
-    	Tecnico tecnico = new Tecnico(null, "Matheus LIma", "45769669870", "matheus.lima@dellavolpe.com.br", "1234321");
-		tecnico.addPerfil(Perfil.ADMIN);
+    	Tecnico tecnico = new Tecnico(null, "Matheus Lima", "45769669870", "matheus.lima@dellavolpe.com.br", "1234321");
+		tecnico.addPerfil(Perfil.TECNICO);
+        tecnico.addPerfil(Perfil.ADMIN);
 
 		tecnicoRepository.saveAll(Arrays.asList(tecnico));
 
