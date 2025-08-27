@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.matheus.HelpDesk.domain.Tecnico;
 import com.matheus.HelpDesk.repository.TecnicoRepository;
+import com.matheus.HelpDesk.services.exceptions.ObjNotFoundException;
 
 @Service
 public class TecnicoService {
@@ -16,7 +17,7 @@ public class TecnicoService {
 
     public Tecnico buscarPorId(Integer id){
         Optional<Tecnico> tecnico = tecnicoRepository.findById(id);
-        return tecnico.orElse(null);
+        return tecnico.orElseThrow(()-> new ObjNotFoundException("Registro não encontrado! ID:  "+ id));
 
     }
 
