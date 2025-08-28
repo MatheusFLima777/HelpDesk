@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.matheus.HelpDesk.domain.Tecnico;
+import com.matheus.HelpDesk.domain.dtos.TecnicoDTO;
 import com.matheus.HelpDesk.repository.TecnicoRepository;
 import com.matheus.HelpDesk.services.exceptions.ObjNotFoundException;
 
@@ -24,6 +25,13 @@ public class TecnicoService {
 
     public List<Tecnico> findAll() {
         return tecnicoRepository.findAll();
+    }
+
+    public Tecnico saveTecnico(TecnicoDTO tecnicoDTO) {
+        tecnicoDTO.setId(null);
+        Tecnico novoTecnico = new Tecnico(tecnicoDTO);
+        return tecnicoRepository.save(novoTecnico);
+       
     }
 
 }

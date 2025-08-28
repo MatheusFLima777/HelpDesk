@@ -3,15 +3,15 @@ package com.matheus.HelpDesk.domain.dtos;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
+
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.matheus.HelpDesk.domain.Tecnico;
+import com.matheus.HelpDesk.domain.enums.Perfil;
 
 
 public class TecnicoDTO {
-
-
 
     protected Integer id;
     protected String nome;
@@ -25,6 +25,7 @@ public class TecnicoDTO {
 
     public TecnicoDTO(){
         super();
+        addPerfil(Perfil.TECNICO);
     }
 
     public TecnicoDTO(Tecnico obj) {
@@ -77,12 +78,12 @@ public class TecnicoDTO {
         this.senha = senha;
     }
 
-    public Set<Integer> getPerfis() {
-        return perfis;
+    public Set<Perfil> getPerfis() {
+        return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
     }
 
-    public void setPerfis(Set<Integer> perfis) {
-        this.perfis = perfis;
+    public void addPerfil(Perfil perfil) {
+        this.perfis.add(perfil.getCodigo());
     }
 
     public LocalDate getDtCriacao() {
